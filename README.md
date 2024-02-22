@@ -69,14 +69,16 @@ pyX.Y.Z/bin/python -m pip install -r requirements.txt
 Run the code:
 
 ```
-pyX.Y.Z server.py
+pyX.Y.Z/bin/python server.py
 ```
 
 
 Open another terminal and query the API:
 
+> curl manual:
+
 ```
-curl -X GET 127.0.0.1:8080 -v
+curl -w '\n' -X GET 127.0.0.1:8080 -vv
 ```
 
 
@@ -85,18 +87,32 @@ curl -X GET 127.0.0.1:8080 -v
 Format your code with the package/tool `black`:
 
 ```
-pyX.Y.Z -m black server.py
+pyX.Y.Z/bin/python -m black server.py
 ```
 
 
 ## ssh port forwarding
 
+**Case:** Query the API from another computer via a ssh connection.
+
+
+> ssh manual: https://man.archlinux.org/man/ssh.1
 
 To find the ip address:
 
 ```
 ip addr
 ```
+
+Make sure the sshd is running on the server:
+
+> `sudo` is needed for this command.
+
+```
+systemctl status sshd
+```
+
+> If not start the sshd: `systemctl start sshd`
 
 
 The ssh command with the `-L` option can create a connection beetwen to computers.
@@ -117,11 +133,3 @@ To create a connection that listen on port `8080` and forwards it to port `8080`
 ```
 ssh - L 127.0.0.1:8080:127.0.0.1:8080 jack@192.168.88.200
 ```
-
-
-
-
-
-
-
-
