@@ -75,10 +75,24 @@ pyX.Y.Z/bin/python server.py
 
 Open another terminal and query the API:
 
-> curl manual:
+> curl manual: https://man.archlinux.org/man/curl.1
 
 ```
 curl -w '\n' -X GET 127.0.0.1:8080 -vv
+```
+
+
+Go to your browser and try:
+
+```
+127.0.0.1:8080
+```
+
+
+Query the `/echo` endpoint in a terminal:
+
+```
+curl -w '\n' -X POST -H 'Content-Type: text/plain; charset=utf-8' -d 'sending some plain text' 127.0.0.1:8080/echo -vv
 ```
 
 

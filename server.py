@@ -53,7 +53,7 @@ if __name__ == "__main__":
     try:
         print("To test the endpoints use (the -vv is optional):")
         print(r"curl -w '\n' -X GET 127.0.0.1:8080 -vv")
-        print(r"curl -w '\n' -X POST -H 'Content-Type: text/plain; charset=utf-8' -d 'sending some plain text' 127.0.0.1/echo:8080 -vv")
+        print(r"curl -w '\n' -X POST -H 'Content-Type: text/plain; charset=utf-8' -d 'sending some plain text' 127.0.0.1:8080/echo -vv")
         main()
     except Exception as e:
         print(e)
